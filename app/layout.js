@@ -23,6 +23,9 @@ export const metadata = {
   authors: [{ name: "Rachel Rios" }],
   creator: "Rachel Rios",
   publisher: "Rachel Rios",
+  verification: {
+    google: "W63bZW5NfZfCzmyb6pzkeqTM3u4a9xs2_AaP7s59jT0"
+  },
   keywords: [
     "life coach",
     "business coach",
