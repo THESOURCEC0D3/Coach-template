@@ -40,7 +40,7 @@ const personSchema = {
     name: "Coach",
     occupationLocation: { "@type": "City", name: "Brooklyn" },
   },
-  offers: {
+  makesOffer: {
     "@type": "Offer",
     name: "Free Discovery Call",
     description: "A free 30-minute consultation to see if coaching is a fit.",
