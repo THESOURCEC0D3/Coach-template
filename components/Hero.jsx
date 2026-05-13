@@ -52,9 +52,9 @@ export default function Hero() {
         {/* Right — Photo */}
         <FadeInUp className="relative flex justify-center">
           <div className="absolute inset-0 bg-violet-100 rounded-3xl -rotate-3 scale-95" />
-          <div className="relative w-full aspect-[3/4] max-w-sm rounded-3xl overflow-hidden shadow-xl">
+          <div className="relative w-full aspect-3/4 max-w-sm rounded-3xl overflow-hidden shadow-xl">
             <Image
-              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80"
+              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=70"
               alt="Rachel Rios — Life & Business Coach"
               fill
               sizes="(max-width: 768px) 100vw, 384px"

@@ -13,7 +13,7 @@ export default function Bio() {
         {/* Left — Photo bleeds to viewport left edge */}
         <FadeInUp className="relative w-full h-96 md:h-150 md:rounded-r-3xl overflow-hidden shadow-2xl">
           <Image
-            src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80"
+            src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=70"
             alt="Rachel Rios — casual portrait"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"

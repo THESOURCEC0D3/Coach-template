@@ -30,7 +30,7 @@ export default function Empathy() {
             {/* Portrait */}
             <div className="absolute inset-0 rounded-[50%] overflow-hidden shadow-lg">
               <Image
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80"
+                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=70"
                 alt="Rachel Rios — warm portrait"
                 fill
                 sizes="(max-width: 768px) 100vw, 384px"
