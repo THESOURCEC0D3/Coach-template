@@ -9,7 +9,7 @@ This file is project-specific. My personal preferences, goals, and learning road
 - **Next.js 16** (App Router; never Pages Router)
 - **React 19**
 - **Tailwind CSS 4** (PostCSS config at `postcss.config.mjs`)
-- **Framer Motion** for scroll-triggered animations
+- **No animation library** — scroll-triggered fade-ins use a hand-rolled `IntersectionObserver` + CSS transitions in `FadeInUp.jsx`. Removed `framer-motion` after Lighthouse showed it was the biggest blocker on mobile.
 - **JavaScript + JSX** (no TypeScript — deliberate for now; reconsider after first paid template client)
 - Path alias: `@/*` resolves to project root (see `jsconfig.json`)
 - Fonts: `Geist` (body, in `app/layout.js`), `DM_Serif_Display` (headings, imported per-component), `Playfair_Display` italic (accent — 1–2 emphasis words per heading, imported per-component where used)
@@ -51,7 +51,7 @@ This file is project-specific. My personal preferences, goals, and learning road
 - `components/Navbar.jsx` — sticky responsive nav with mobile menu (client component for `useState`)
 - `components/Hero.jsx` — split layout: left text + CTAs / right photo with violet offset rectangle. Section background: violet-tinted gradient (`from-violet-50 to-white`) with three blurred decorative blobs (violet + fuchsia, ambient color glow). Bottom-right "New Here?" card anchors to `#new-here`. Trust stats moved to SocialProof bar.
 - `components/Services.jsx` — three-card grid; data-driven; FadeInUp staggered at 0.15s intervals
-- `components/FadeInUp.jsx` — Framer Motion scroll-fade wrapper
+- `components/FadeInUp.jsx` — scroll-triggered fade-in wrapper using native `IntersectionObserver` + CSS transitions (no animation library). Respects `prefers-reduced-motion`. Drop-in API: `delay`, `duration`, `amount`, `className`.
 - `components/AnnouncementBar.jsx` — dismissible amber-400 top bar with localStorage persistence; client component for `useState` + `useEffect` + `localStorage`
 - `components/Empathy.jsx` — `<section id="new-here">`; two-column with oval-cropped portrait + desire/problem/pivot typographic rhythm; anchors from hero's "New Here? Start Here →" CTA. Warm-toned ambient blobs (rose + amber) for emotional warmth. Soft transition CTA "Here's how I can help →" anchors to `#services`.
 - `components/SocialProof.jsx` — thinner bar (`py-14`) on `bg-gray-50`; stats row (DM Serif + violet-700 numbers) + "As Featured In" text-placeholder logo strip. Data-driven via `stats` and `featuredIn` arrays. Featured-in strip auto-hides when array is empty; gray separator line above always renders.

@@ -255,7 +255,7 @@ While in demo mode, the form pretends to succeed (so visitors don't see broken U
 - **Next.js 16** (App Router) — the React framework
 - **React 19** — the UI library
 - **Tailwind CSS 4** — utility-first styling
-- **Framer Motion** — scroll-fade animations
+- **No animation library** — scroll-fade animations use the browser's native `IntersectionObserver` + CSS transitions, so the page is fast on mobile
 - **Kit (formerly ConvertKit)** — email integration (swappable)
 
 No database. No CMS. No auth. The site is fully static + a few Server Actions for the email forms. That's why it's fast and cheap to host.
