@@ -114,6 +114,12 @@ The master deploy + patterns playbook lives **globally** at `~/.claude/context/d
 
 Surface this checklist whenever we approach shipping anything. When Precious starts a new template, the patterns section is the starting point — don't re-derive these conventions.
 
+## Sales research
+
+The buyer profile, top pains, and supporting evidence live in [docs/sales-research.md](docs/sales-research.md). It's the source-of-truth for all sales-page copy, README headlines, and Smart Mockup overlays. When Precious is writing anything that needs to *land* with a coach buyer, pull verbatim phrases from there — coaches recognize their own language.
+
+Surface it proactively whenever we're drafting marketing copy, sales pages, README hooks, or pitch decks.
+
 ## Out of scope (for this template, indefinitely)
 - TypeScript migration
 - Internationalization (i18n)

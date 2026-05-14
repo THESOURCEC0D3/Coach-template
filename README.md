@@ -2,7 +2,19 @@
 
 A modern, conversion-optimized website template for life and business coaches. Built on Next.js, designed to look like the sites the top 1% of coaches use, customizable in an afternoon.
 
-**Live demo:** _(add your Vercel URL here after deploying)_
+**Live demo:** [coach-template-alpha.vercel.app](https://coach-template-alpha.vercel.app)
+
+---
+
+## Preview
+
+![Hero section](./public/readme-images/hero.png)
+
+![Lead magnet](./public/readme-images/lead-magnet.png)
+
+![Testimonials marquee](./public/readme-images/testimonials.png)
+
+![Mobile view](./public/readme-images/mobile.png)
 
 ---
 
