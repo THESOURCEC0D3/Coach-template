@@ -12,7 +12,11 @@ import Newsletter from "@/components/Newsletter";
 // Structured data (JSON-LD) — tells search engines exactly who this page is about.
 // Google uses this to generate rich results (knowledge panels, expanded snippets, etc.).
 // SITE_URL is read from env var; see app/layout.js for the same pattern.
-const SITE_URL = process.env.SITE_URL || "http://localhost:3000";
+const SITE_URL =
+  process.env.SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
 
 const personSchema = {
   "@context": "https://schema.org",

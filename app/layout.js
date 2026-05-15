@@ -6,10 +6,16 @@ import Footer from "@/components/Footer";
 
 const geist = Geist({ subsets: ["latin"] });
 
-// Canonical production URL. Read from `SITE_URL` env var (set in `.env.local`
-// locally and in Vercel project settings in production). Falls back to localhost
-// for dev so the template works on first install without any config.
-const SITE_URL = process.env.SITE_URL || "http://localhost:3000";
+// Canonical production URL. Resolution order:
+//   1. SITE_URL env var — set this for a custom domain (e.g. https://yourname.com)
+//   2. Vercel's auto-injected production URL — so deployed sites NEVER fall back
+//      to localhost in canonical tags / OG images, even if SITE_URL is unset
+//   3. localhost — local dev only
+const SITE_URL =
+  process.env.SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
