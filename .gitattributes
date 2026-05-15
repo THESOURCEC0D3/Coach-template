@@ -1,0 +1,9 @@
+# Files excluded from `git archive` (the buyer's product zip).
+# These stay in the repo but are NOT shipped to buyers — they're our
+# internal marketing/strategy assets, not part of the template product.
+
+docs/ export-ignore
+public/readme-images/ export-ignore
+public/sales-assets/ export-ignore
+CLAUDE.md export-ignore
+.gitattributes export-ignore
