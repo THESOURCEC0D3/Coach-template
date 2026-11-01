@@ -1,5 +1,14 @@
 # Coach Template — Project Notes
 
+> **Client customization scope:** The user has requested the Trophy Kiprono
+> website/bookstore described in Trophy Prompt 1.docx. For that work, its
+> requirements supersede this template's brand rules and exclusions of
+> TypeScript, CMS, blog, accounts and commerce. See the
+> [Phase 1 audit](docs/trophy/repository-audit.md) and
+> [implementation plan awaiting approval](docs/trophy/implementation-plan.md).
+> Preserve useful component conventions; use plain task branches and PR review
+> before merging into `main`.
+
 ## What this is
 A Next.js business landing page template for **life and business coaches**, built to sell to small-business clients as part of the templates business (see `~/.claude/context/role.md`). Started May 1, 2026.
 

@@ -1,5 +1,11 @@
 # Coach Template
 
+> **Trophy Kiprono customization:** Phase 1 audit and implementation planning are
+> ready for review. See the [repository audit](docs/trophy/repository-audit.md)
+> and [proposed implementation checklist](docs/trophy/implementation-plan.md).
+> The application below is still the original template; Trophy features are not
+> yet implemented.
+
 A modern, conversion-optimized website template for life and business coaches. Built on Next.js, designed to look like the sites the top 1% of coaches use, customizable in an afternoon.
 
 **Live demo:** [coach-template-alpha.vercel.app](https://coach-template-alpha.vercel.app)
@@ -8,7 +14,7 @@ A modern, conversion-optimized website template for life and business coaches. B
 
 ## Preview
 
-![Hero section](./public/readme-images/hero.png)
+![Hero section](./public/readme-images/hero.png%20%282%29.png)
 
 ![Lead magnet](./public/readme-images/lead-magnet.png)
 
@@ -45,7 +51,9 @@ Plus two extra pages:
 
 ## Quick start
 
-You'll need [Node.js](https://nodejs.org) installed (any version 18+).
+You'll need [Node.js](https://nodejs.org) 20.9+ for the pinned Next.js template.
+The planned Medusa integration requires a supported LTS runtime at 22.22.0+;
+see the [Trophy implementation plan](docs/trophy/implementation-plan.md).
 
 1. **Open this folder in a terminal.** On Windows: shift + right-click the folder → "Open in Terminal." On Mac: open Terminal and `cd` into the folder.
 2. **Install dependencies:**
