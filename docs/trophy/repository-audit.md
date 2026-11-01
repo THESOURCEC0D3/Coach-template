@@ -36,9 +36,11 @@ Supplied client facts to carry forward:
   clients or publication dates accompany the prompt.
 
 `CLAUDE.md` describes the original generic template. Its exclusions of TypeScript,
-CMS, blog, accounts and commerce, and its violet brand rules, conflict with this
-client customization. The user-authorized document takes precedence for Trophy
-work. Retain useful component conventions without retaining conflicting scope.
+CMS, blog, accounts and commerce conflict with this client customization. The
+user-authorized document takes precedence for Trophy work, except where the
+user has subsequently overridden it. The user requested the **template's default
+colors**, so retain its violet/amber palette instead of the document's colors.
+Retain useful component conventions without retaining conflicting scope.
 
 ## Repository and working tree
 
@@ -140,6 +142,8 @@ These are code-review findings, not completed browser, penetration or legal test
 | `npm run build` with approved network access | Passed compilation and prerendering, exit 0. Reported a dynamic font download warning for the `✦` glyph (HTTP 400); generated-image appearance remains unverified. |
 | `npm audit --omit=dev --json` with network access | Completed, exit 1: **6 affected packages: 1 critical, 4 high, 1 moderate**. This is not a clean audit. |
 | Manifest/lockfile comparison | Passed: dependency installation did not change `package.json` or `package-lock.json`. |
+| Documentation local-link check | Passed for README, project notes, audit and plan; corrected the stale README hero asset link. |
+| `git diff --check` | Passed for the documentation changes. |
 | Typecheck | Not available: no configured TypeScript project or typecheck script. The build's TypeScript progress line is not evidence of checked JS application types. |
 | Automated unit/integration/Playwright tests | Not run: no suites or test scripts exist. |
 | Browser, external providers and deployed environments | Not verified in Phase 1. |

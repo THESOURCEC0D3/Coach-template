@@ -2,6 +2,8 @@
 
 Status: **proposed after Phase 1; Phases 2–6 have not started**.
 Source: Trophy Prompt 1.docx. Baseline: [repository audit](repository-audit.md).
+User override: retain the template's default colors; the document's color palette
+does not apply. Other requirements remain as written.
 
 ## Working agreement
 
@@ -77,9 +79,12 @@ require authorization; obscured URLs and `robots.txt` are not access controls.
 - [ ] Configure strict TypeScript, aliases and an actual `typecheck` script;
   migrate application modules incrementally without duplicate JS/TS routes.
 - [ ] Add actual shadcn components, utilities and Lucide icons as needed.
-- [ ] Define Forest Green `#173B34`, Champagne Gold `#C8A46B`, Warm Ivory
-  `#F7F3EB`, Charcoal `#252525`, Playfair Display headings and Inter body text.
-  Verify contrast for text, controls and focus indicators.
+- [ ] Retain the template's default colors: violet-700 primary, violet-100/200
+  supporting accents, violet-800 hover, gray text and white/gray-50 sections.
+  Keep amber-400 limited to the existing announcement/newsletter section pattern
+  when those sections are used. Preserve the template's dark footer treatment.
+  Use the requested Playfair Display headings and Inter body text. Verify
+  contrast for text, controls and focus indicators.
 - [ ] Accessible desktop/mobile navigation, skip link, keyboard/focus behavior,
   responsive spacing/type, optimized media and reduced-motion support.
 - [ ] Homepage order: navigation; hero with explicit photograph placeholder;
