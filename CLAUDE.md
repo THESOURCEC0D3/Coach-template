@@ -4,9 +4,13 @@
 > website/bookstore described in Trophy Prompt 1.docx. For that work, its
 > requirements supersede conflicting template restrictions, including exclusions
 > of TypeScript, CMS, blog, accounts and commerce. The user's subsequent instruction
-> retains this template's default violet/amber colors. See the
+> changes the template accents from purple to a golden palette. Use the `gold-*`
+> tokens in `app/globals.css`; older violet examples below are historical. See the
 > [Phase 1 audit](docs/trophy/repository-audit.md) and
-> [implementation plan awaiting approval](docs/trophy/implementation-plan.md).
+> [implementation plan](docs/trophy/implementation-plan.md). The user has authorized
+> sections 4–7, local preview and GitHub pushes. The supplied portrait and
+> Mastering Office Politics cover are approved; its print price is KES 2,550.
+> Current setup is documented in [local development](docs/trophy/local-development.md).
 > Preserve useful component conventions; use plain task branches and PR review
 > before merging into `main`.
 

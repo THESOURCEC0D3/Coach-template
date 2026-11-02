@@ -1,0 +1,15 @@
+import type { Metadata } from "next";
+import { BookOpen, Search } from "lucide-react";
+import PageIntro from "@/components/site/PageIntro";
+import EmptyState from "@/components/site/EmptyState";
+import BookCard from "@/components/commerce/BookCard";
+import { getBooks } from "@/lib/commerce/catalog";
+
+export const metadata: Metadata = { title: "Books & Publications", description: "Explore books and publications by Trophy Kiprono, with print and digital editions when available." };
+export const dynamic = "force-dynamic";
+
+export default async function BooksPage({ searchParams }: { searchParams: Promise<{ q?: string; format?: string }> }) {
+  const query = await searchParams;
+  const { books, available } = await getBooks(query);
+  return <main><PageIntro label="The bookstore" title="Words to take with you." description="Explore Trophy’s books and publications. Choose the edition that fits your reading life." /><section className="mx-auto max-w-6xl px-4 py-12 sm:px-6"><form className="mb-10 grid gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-5 sm:grid-cols-[1fr_180px_auto]" action="/books"><label className="relative"><span className="sr-only">Search books</span><Search aria-hidden="true" size={18} className="absolute left-4 top-3.5 text-gray-400" /><input name="q" defaultValue={query.q} placeholder="Search books…" maxLength={100} className="w-full rounded-full border border-gray-200 bg-white py-3 pl-11 pr-4 text-sm focus:border-gold-700 focus:outline-none focus:ring-2 focus:ring-gold-200" /></label><label><span className="sr-only">Book format</span><select name="format" defaultValue={query.format || "all"} className="h-full w-full rounded-full border border-gray-200 bg-white px-4 py-3 text-sm"><option value="all">All editions</option><option value="physical">Print</option><option value="pdf">PDF</option><option value="epub">ePub</option></select></label><button className="rounded-full bg-gold-700 px-6 py-3 text-sm font-semibold text-white hover:bg-gold-800">Search</button></form>{books.length ? <><p className="mb-6 text-sm text-gray-500">{books.length} {books.length === 1 ? "book" : "books"}</p><div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{books.map((book) => <BookCard key={book.id} book={book} />)}</div></> : <div className="py-8 text-center"><BookOpen className="mx-auto mb-6 text-gold-300" size={44} aria-hidden="true" /><EmptyState title={query.q || (query.format && query.format !== "all") ? "No matching books yet" : "A new chapter is on its way"} description={available ? "Published titles will appear here when they are available. For publication or book enquiries, get in touch with Trophy." : "The catalogue is being prepared. For book availability and publication enquiries, please get in touch with Trophy."} href="/contact" action="Enquire about books" /></div>}<p className="mt-12 text-center text-xs text-gray-500">Prices are shown in Kenyan shillings (KES). Delivery applies to physical books; digital editions are available after confirmed payment.</p></section></main>;
+}

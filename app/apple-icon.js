@@ -14,7 +14,7 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#7c3aed",
+          background: "#8f6418",
           color: "white",
           fontSize: 120,
           fontFamily: "Georgia, serif",
@@ -22,7 +22,7 @@ export default function AppleIcon() {
           borderRadius: 36,
         }}
       >
-        R
+        T
       </div>
     ),
     size

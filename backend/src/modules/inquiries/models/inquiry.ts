@@ -1,0 +1,27 @@
+import { model } from "@medusajs/framework/utils";
+
+export const Inquiry = model.define("inquiry", {
+  id: model.id().primaryKey(),
+  request_id: model.text().unique(),
+  input_digest: model.text(),
+  full_name: model.text(),
+  email: model.text(),
+  email_hash: model.text(),
+  phone: model.text(),
+  organization: model.text().nullable(),
+  service: model.text(),
+  preferred_date: model.text().nullable(),
+  delivery_format: model.enum(["online", "in-person", "hybrid", "discuss"]),
+  message: model.text(),
+  consent: model.boolean(),
+  status: model.enum(["received", "reviewing", "needs-information", "proposed", "confirmed", "declined", "closed"]).default("received"),
+  tracking_token_hash: model.text().unique(),
+  confirmed_date: model.text().nullable(),
+  calendar_verified_at: model.dateTime().nullable(),
+  calendar_reference: model.text().nullable(),
+  status_history: model.json(),
+  notification_status: model.enum(["pending", "sending", "sent", "failed", "unconfigured"]).default("pending"),
+  notification_attempts: model.number().default(0),
+  notification_started_at: model.dateTime().nullable(),
+  last_notified_at: model.dateTime().nullable(),
+}).indexes([{ on: ["email_hash", "created_at"] }, { on: ["status", "created_at"] }]);

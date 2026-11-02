@@ -1,0 +1,14 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, Building2, MessageCircle, Users } from "lucide-react";
+import PageIntro from "@/components/site/PageIntro";
+
+export const metadata: Metadata = {
+  title: "The Brand Experts Kenya",
+  description: "Trophy Kiprono is Co-Founder of The Brand Experts Kenya. Enquire about communication and training needs for your organization.",
+  alternates: { canonical: "/the-brand-experts-kenya" },
+};
+
+export default function BrandExpertsPage() {
+  return <main><PageIntro label="A shared vision" title="The Brand Experts Kenya." description="Trophy Kiprono is Co-Founder of The Brand Experts Kenya, bringing her communication and training perspective to her work as an entrepreneur." /><section className="bg-white"><div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 md:grid-cols-2"><div className="flex min-h-80 flex-col items-center justify-center rounded-3xl border border-gold-100 bg-gold-50 p-10 text-center"><Building2 aria-hidden="true" className="mb-6 h-16 w-16 text-gold-700" strokeWidth={1.2} /><p className="font-heading text-4xl text-gold-900">The Brand Experts Kenya</p><p className="mt-4 text-sm font-medium uppercase tracking-widest text-gold-700">Co-founded by Trophy Kiprono</p></div><div><h2 className="font-heading text-4xl leading-tight text-gray-900">Let&apos;s talk about your organization.</h2><p className="mt-6 text-lg leading-relaxed text-gray-600">If you are exploring communication, presentation or leadership training, share your team&apos;s needs with Trophy. Your inquiry can clarify the right scope and the next steps.</p><p className="mt-5 leading-relaxed text-gray-600">Training requirements, delivery format, availability and fees are discussed individually, so your proposal can reflect your organization&apos;s needs.</p><Link href="/contact?service=corporate-training" className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold-700 px-7 py-3.5 font-semibold text-white transition hover:bg-gold-800">Discuss your training needs <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link></div></div></section><section className="bg-gray-50"><div className="mx-auto grid max-w-6xl gap-8 px-4 py-16 md:grid-cols-2">{[{ Icon: MessageCircle, title: "Bring your brief", text: "Tell us about your team, the communication challenges you face and the skills you would like to develop." }, { Icon: Users, title: "Explore the fit", text: "Discuss the audience, intended outcomes and preferred delivery format before a proposal is agreed." }].map(({ Icon, title, text }) => <article key={title} className="rounded-2xl border border-gray-100 bg-white p-8"><Icon aria-hidden="true" className="h-8 w-8 text-gold-700" strokeWidth={1.5} /><h2 className="mt-5 font-heading text-2xl text-gray-900">{title}</h2><p className="mt-4 leading-relaxed text-gray-600">{text}</p></article>)}</div></section></main>;
+}

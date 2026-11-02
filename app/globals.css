@@ -1,10 +1,35 @@
 @import "tailwindcss";
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+@theme {
+  --color-gold-50: #fffcf2;
+  --color-gold-100: #faf0d2;
+  --color-gold-200: #f0dba0;
+  --color-gold-300: #e4c274;
+  --color-gold-400: #d5ae51;
+  --color-gold-500: #c29a3d;
+  --color-gold-600: #aa7f25;
+  --color-gold-700: #8f6418;
+  --color-gold-800: #734d16;
+  --color-gold-900: #5d3d15;
+  --color-gold-950: #332109;
+}
+
+@theme inline {
+  --font-sans: var(--font-body), Arial, sans-serif;
+  --font-heading: var(--font-display), Georgia, serif;
+}
+
+body { font-family: var(--font-body), Arial, sans-serif; }
+h1, h2 { font-family: var(--font-display), Georgia, serif; font-weight: 400; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+a, button, input, select, textarea { outline-offset: 4px; }
+:focus-visible { outline: 2px solid #8f6418; }
+::selection { background: #faf0d2; color: #5d3d15; }
+section[id], #main-content { scroll-margin-top: 6rem; }
+.skip-link { position: fixed; left: 1rem; top: -6rem; z-index: 100; border-radius: 999px; background: #8f6418; color: white; padding: .8rem 1.3rem; }
+.skip-link:focus { top: 1rem; }
+input:not([type="checkbox"]):not([type="radio"]), select, textarea { min-width: 0; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }

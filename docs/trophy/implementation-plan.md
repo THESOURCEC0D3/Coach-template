@@ -1,9 +1,13 @@
 # Trophy Kiprono: implementation plan for approval
 
-Status: **proposed after Phase 1; Phases 2–6 have not started**.
+Status: **Phase 1 plan retained for reference. The user subsequently authorized
+implementation of document sections 4–7, local preview and GitHub pushes.**
+See [local development](local-development.md) for the implemented configuration
+and remaining external setup.
 Source: Trophy Prompt 1.docx. Baseline: [repository audit](repository-audit.md).
-User override: retain the template's default colors; the document's color palette
-does not apply. Other requirements remain as written.
+Current user override: replace the template's purple accents with golden colors.
+The original layout is retained; `gold-*` tokens define the current palette.
+Other requirements remain as written.
 
 ## Working agreement
 
@@ -15,8 +19,8 @@ does not apply. Other requirements remain as written.
 - Create dependent branches after their prerequisite merges, or explicitly name
   the dependency and target branch for a stacked PR. No independent branch may
   silently assume unmerged changes from another task.
-- Start Phase 2 after the Phase 1 plan is approved, as the document requests.
-  Missing business content can be represented honestly; it must not be invented.
+- The user has authorized sections 4–7 directly. Missing business content can be
+  represented honestly; it must not be invented.
 - Preserve the root Next.js app and useful component structure. Leave the
   pre-existing independent `trophy_kiprono/` checkout untouched.
 
@@ -79,10 +83,9 @@ require authorization; obscured URLs and `robots.txt` are not access controls.
 - [ ] Configure strict TypeScript, aliases and an actual `typecheck` script;
   migrate application modules incrementally without duplicate JS/TS routes.
 - [ ] Add actual shadcn components, utilities and Lucide icons as needed.
-- [ ] Retain the template's default colors: violet-700 primary, violet-100/200
-  supporting accents, violet-800 hover, gray text and white/gray-50 sections.
-  Keep amber-400 limited to the existing announcement/newsletter section pattern
-  when those sections are used. Preserve the template's dark footer treatment.
+- [ ] Use the user-requested golden palette: gold-700 primary, gold-100/200
+  supporting accents, gold-800 hover, gray text and white/gray-50 sections.
+  Preserve the template's dark footer treatment using gold-950.
   Use the requested Playfair Display headings and Inter body text. Verify
   contrast for text, controls and focus indicators.
 - [ ] Accessible desktop/mobile navigation, skip link, keyboard/focus behavior,

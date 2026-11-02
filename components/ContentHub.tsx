@@ -1,0 +1,6 @@
+import Link from "next/link";
+import { ArrowUpRight, NotebookPen } from "lucide-react";
+
+export default function ContentHub() {
+  return <section id="resources" className="bg-gray-50"><div className="mx-auto max-w-6xl px-5 py-20 sm:px-6"><div className="mb-10 flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><p className="mb-4 text-xs font-semibold tracking-[.2em] text-gold-700 uppercase">Articles & resources</p><h2 className="text-4xl leading-tight text-gray-900 sm:text-5xl">Ideas to take<br /><span className="text-gold-700 italic">with you.</span></h2></div><Link href="/resources" className="inline-flex min-h-11 items-center gap-2 font-semibold text-gold-700">Browse resources<ArrowUpRight size={18} aria-hidden="true" /></Link></div><div className="flex flex-col gap-6 rounded-2xl border border-gray-100 bg-white p-8 sm:flex-row sm:items-center sm:p-10"><span className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gold-50 text-gold-700"><NotebookPen size={30} strokeWidth={1.25} aria-hidden="true" /></span><div><h3 className="text-xl font-semibold text-gray-900">Thoughtful learning, beyond the session.</h3><p className="mt-3 max-w-2xl leading-relaxed text-gray-600">Articles and practical resources on communication, confidence and growth will be shared here as they are published.</p></div></div></div></section>;
+}

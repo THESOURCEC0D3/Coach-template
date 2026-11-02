@@ -1,0 +1,9 @@
+export type BookFormat = "physical" | "pdf" | "epub";
+export type BookVariant = { id: string; title: string; format: BookFormat; price: number | null; currency: string; available: boolean };
+export type Book = { id: string; handle: string; title: string; subtitle?: string; description: string; cover: string | null; author?: string; isbn?: string; publicationDate?: string; availabilityNote?: string; variants: BookVariant[] };
+export type CartItem = { id: string; title: string; quantity: number; unit_price: number; subtotal: number; total: number; requires_shipping?: boolean; variant_id?: string; thumbnail?: string; variant?: { metadata?: Record<string, unknown>; product?: { handle?: string; metadata?: Record<string, unknown> } } };
+export type Cart = { id: string; email?: string; currency_code: string; region_id: string; customer_id?: string; items: CartItem[]; subtotal: number; total: number; discount_total: number; shipping_total: number; tax_total: number; promotions?: { code: string }[]; shipping_address?: Record<string, string>; shipping_methods?: { id: string; name: string; amount: number }[]; payment_collection?: { id: string; payment_sessions?: { id: string; provider_id: string; status: string; data?: Record<string, unknown> }[] } };
+export type Customer = { id: string; email: string; first_name?: string; last_name?: string };
+export type Order = { id: string; display_id: number; email: string; currency_code: string; total: number; created_at: string; status: string; payment_status: string; fulfillment_status: string; items: CartItem[]; downloads?: Entitlement[] };
+export type Entitlement = { id: string; order_id: string; line_item_id: string; format: string; title: string; download_limit: number; grant_count: number; revoked_at: string | null; created_at: string };
+export type ActionResult = { error?: string; success?: string };

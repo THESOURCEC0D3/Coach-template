@@ -1,0 +1,19 @@
+import Link from "next/link";
+import PageIntro from "@/components/site/PageIntro";
+import EmptyState from "@/components/site/EmptyState";
+import { CheckoutForm, ShippingForm, PaymentForm, CompleteOrderForm } from "@/components/commerce/Forms";
+import { getCart } from "@/lib/commerce/cart";
+import { medusa } from "@/lib/commerce/client";
+import { money, needsShipping } from "@/lib/commerce/helpers";
+
+export const metadata = { title: "Checkout", robots: { index: false, follow: false } };
+export const dynamic = "force-dynamic";
+
+export default async function CheckoutPage() {
+  const cart = await getCart().catch(() => null);
+  if (!cart?.items.length) return <main className="mx-auto max-w-6xl px-4 py-24"><EmptyState title="Your next chapter starts here" description="Add an available book to your bag to begin checkout." href="/books" action="Explore books" /></main>;
+  const physical = needsShipping(cart.items);
+  const options = physical && cart.shipping_address ? (await medusa<{ shipping_options: { id: string; name: string; amount: number }[] }>(`/store/shipping-options?cart_id=${cart.id}`).catch(() => ({ shipping_options: [] }))).shipping_options : [];
+  const providers = (await medusa<{ payment_providers: { id: string }[] }>(`/store/payment-providers?region_id=${cart.region_id}`).catch(() => ({ payment_providers: [] }))).payment_providers.filter((provider) => provider.id !== "pp_system_default");
+  return <main><PageIntro label="Secure checkout" title="Make room for your next read." description="Guest checkout is welcome. Your totals are calculated securely from your book bag." /><section className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_360px]"><div className="space-y-8"><div className="rounded-3xl border border-gray-100 p-7"><CheckoutForm cart={cart} physical={physical} /></div>{physical && <div className="rounded-3xl border border-gray-100 p-7"><h2 className="mb-5 text-2xl">Delivery</h2><ShippingForm options={options} /></div>}<div className="rounded-3xl border border-gray-100 p-7"><h2 className="mb-4 text-2xl">Payment</h2>{providers.length ? <><PaymentForm providers={providers} />{cart.payment_collection?.payment_sessions?.length ? <CompleteOrderForm /> : null}</> : <div className="rounded-2xl bg-gold-50 p-5"><p className="leading-relaxed text-gray-600">Online payments are not open yet. Your bag is saved, and no payment has been taken. Please contact Trophy about purchasing or delivery.</p><Link href="/contact" className="mt-4 inline-block font-semibold text-gold-700 underline underline-offset-4">Enquire about your order →</Link></div>}</div></div><aside className="rounded-3xl bg-gray-50 p-7"><h2 className="text-2xl">Order summary</h2><ul className="mt-6 space-y-4">{cart.items.map((item) => <li key={item.id} className="flex justify-between gap-4 text-sm"><span>{item.title} <span className="text-gray-500">× {item.quantity}</span></span><span>{money(item.total, cart.currency_code)}</span></li>)}</ul><dl className="mt-6 space-y-3 border-t border-gray-200 pt-5 text-sm"><div className="flex justify-between"><dt>Delivery</dt><dd>{physical ? cart.shipping_methods?.length ? money(cart.shipping_total, cart.currency_code) : "Choose delivery" : "Not required"}</dd></div>{cart.discount_total > 0 && <div className="flex justify-between"><dt>Discount</dt><dd>−{money(cart.discount_total, cart.currency_code)}</dd></div>}<div className="flex justify-between text-lg font-semibold"><dt>Total</dt><dd>{money(cart.total, cart.currency_code)}</dd></div></dl><p className="mt-6 text-xs leading-relaxed text-gray-500">Review the <Link href="/terms" className="underline">terms</Link>, <Link href="/refunds" className="underline">refund policy</Link> and <Link href="/delivery" className="underline">delivery policy</Link> before completing a purchase.</p></aside></section></main>;
+}
